@@ -1,5 +1,5 @@
 
 exports.summer = (req,res) =>{
-  res.send(`<h1> This is default page </h1>`);
+  res.send(`<h1> This is extra default page </h1>`);
 }
 
