@@ -6,16 +6,22 @@ const app = express();
 require("dotenv").config();
 
 // port 
-PORT =process.env.DATABASE_URL || 3000;
+const PORT =process.env.PORT || 3000;
 
+// middleware 
+app.use(express.json());
 
+// import 
+const blog = require("./routes/blog");
+// mount
+app.use("/again/vlog",blog);
 
 // import databsse 
 const ConnectwithDb = require("./config/database");
 // call databse function  for connectivity
 ConnectwithDb();
 // Server Started Successfully 
-app.listen(3000 , () =>{
+app.listen(PORT , () =>{
   console.log("Server Started succesfully ");
 })
  
