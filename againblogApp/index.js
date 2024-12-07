@@ -1,16 +1,27 @@
-
+// express instance 
 const express = require("express");
 const app = express();
 
-app.listen(3000 , () =>{
-  console.log("server started succesfully ");
-})
+//loading he .env file 
+require("dotenv").config();
 
+// port 
+PORT =process.env.DATABASE_URL || 3000;
+
+
+
+// import databsse 
+const ConnectwithDb = require("./config/database");
+// call databse function  for connectivity
+ConnectwithDb();
+// Server Started Successfully 
+app.listen(3000 , () =>{
+  console.log("Server Started succesfully ");
+})
+ 
+
+// default 
 app.get ("/", (req,res) =>{
-  res.send(`<h1>***"SukhSagar"***</br>
-     "Shivaji Shelke" </br> "Indumati Shelke" </br> "Jitesh Shelke" </br> "Tilak Shelke"</h1>`),
-  res.send(`<h1> "Shivaji Shelke" </h1>`),
-  res.send(`<h1> </h1>`),
-  res.send(`<h1>  </h1>`),
-  res.send(`<h1>  </h1>`)
+  res.send(`<h1>This is Default Home page </h1>`)
+ 
 })
